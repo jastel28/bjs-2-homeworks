@@ -9,9 +9,7 @@ function solveEquation(a, b, c) {
   } else if (d == 0) {
     let x = -b / (2 * a);
     arr.push(x);
-  } else if (d < 0) {
-    arr.push();
-  }
+  } 
   
   
   return arr;
@@ -22,14 +20,14 @@ function solveEquation(a, b, c) {
 
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-    let arr = [];
-
+    
     let p = (percent / 100) / 12;
     let mainDebt = amount - contribution;
     let mounthPayment = mainDebt * (p + (p / (((1 + p)**countMonths) - 1)));
     let totalMount = (mounthPayment * countMonths).toFixed(2);
 
-    arr.push(parseFloat(totalMount));
+    let i =(parseFloat(totalMount));
 
-    return arr;
+    return i; 
+    
 }
