@@ -37,11 +37,11 @@ function summElementsWorker(...arr) {
 function differenceMaxMinWorker(...arr) {
   let min = Infinity;
   let max = -Infinity;
-  let dif = 0;
-
+  
   if (arr.length == 0) {
     return 0;
-  } else if (arr.length > 0) {
+  }
+  if (arr.length > 0) {
     for(let i = 0; i < arr.length; i++) {
 
       if (arr.length == 0) {
@@ -52,8 +52,8 @@ function differenceMaxMinWorker(...arr) {
         min = arr[i];
       }
     }
-    dif = max - min;
-    return dif;
+    return max - min;
+
   }
 }
 
@@ -63,7 +63,8 @@ function differenceEvenOddWorker(...arr) {
 
   if (arr.length == 0) {
     return 0;
-  } else if (arr.length > 0) {
+  } 
+  if (arr.length > 0) {
     for(let i = 0; i < arr.length; i++) {
 
       if (arr[i] % 2 == 0) {
@@ -72,8 +73,7 @@ function differenceEvenOddWorker(...arr) {
         sumOddElement += arr[i];
       }
     }  
-    differentElement = sumEvenElement - sumOddElement;
-    return differentElement;
+    return sumEvenElement - sumOddElement;
 }
 }
 
@@ -83,7 +83,8 @@ function averageEvenElementsWorker(...arr) {
 
   if (arr.length == 0) {
     return 0;
-  } else if (arr.length > 0) {
+  } 
+  if (arr.length > 0) {
     for(let i = 0; i < arr.length; i++) {
 
       if (arr[i] % 2 == 0) {
@@ -91,25 +92,24 @@ function averageEvenElementsWorker(...arr) {
         countEvenElement++;
       }  
     }  
-  degreeElement = sumEvenElement / countEvenElement;
-  return degreeElement;
+    return sumEvenElement / countEvenElement;
 }
 
 
 
 }
 
-function makeWork (arrOfArr, ...func) {
-let maxWorkerResult = -Infinity; 
+function makeWork (arrOfArr, func) {
+let maxWorkerResult = -Infinity;
+const funcResult = -Infinity;  
 
 for(let i = 0; i < arrOfArr.length; i++) {
- func.apply(null, arrOfArr[i]);
- return func; 
-const funcResult = func; 
-}  
+  myFunction = func(...arrOfArr[i]);
+  const funcResult = myFunction;
+ 
 if(funcResult > maxWorkerResult) {
-  maxWorkerResult += funcResult;
+  maxWorkerResult = funcResult;
+}  
 }
 return maxWorkerResult;
-
 }
